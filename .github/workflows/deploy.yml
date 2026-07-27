@@ -19,7 +19,9 @@ jobs:
       - name: Configure vite
         run: |
           echo 'export default {
-            base: "/cgh-map/"
+            base: "/${{ github.event.repository.name }}/",
+            optimizeDeps: {
+              exclude: ['maplibre-gl']}
           }' > vite.config.js
       - name: Build project
         run: npm run build
